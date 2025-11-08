@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&display=swap");
+
+:root {
+  --clr-primary-50: hsl(260, 100%, 95%);
+  --clr-primary-300: hsl(264, 82%, 80%);
+  --clr-primary-500: hsl(263, 55%, 52%);
+  --clr-neutral-100: hsl(214, 17%, 92%);
+  --clr-neutral-200: hsl(0, 0%, 81%);
+  --clr-neutral-400: hsl(224, 10%, 45%);
+  --clr-neutral-500: hsl(217, 19%, 35%);
+  --clr-dark-blue: hsl(219, 29%, 14%);
+  --clr-black: hsl(0, 0%, 7%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-a: hsl(228, 45%, 44%);
+  --clr-a-hover: hsl(228, 84%, 45%);
+
+  --ff-barlow: "Barlow Semi Condensed", sans-serif;
+  --fs-base: 1rem;
+
+  /* Spacing scale (10px = 1 unit)
+    Example : sp-1 = 10px, sp-1-2 = 12px */
+
+  --sp-0-3: 0.0375rem;
+  --sp-1: 0.625rem;
+  --sp-1-2: 0.75rem;
+  --sp-1-3: 0.8125rem;
+  --sp-1-8: 1.125rem;
+  --sp-2: 1.25rem;
+  --sp-2-1: 1.3125rem;
+  --sp-2-3: 1.4375rem;
+  --sp-3: 1.875rem;
+  --sp-4: 2.5rem;
+  --sp-6: 3.75rem;
+  --sp-60: 37.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-barlow);
+}
+
+.testimonial {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-3);
+  margin: var(--sp-6) var(--sp-3);
+}
+
+.testimonial__article {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding: var(--sp-3);
+  box-shadow: 0 var(--sp-1) var(--sp-2) var(--clr-neutral-200);
+  border-radius: var(--sp-1-2);
+  color: var(--clr-white);
+}
+
+.testimonial__header {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.testimonial__avatar {
+  width: var(--sp-4);
+  height: var(--sp-4);
+  border-radius: 50%;
+}
+
+.testimonial__name {
+  font-weight: 500;
+  font-size: var(--sp-1-8);
+}
+
+.testimonial__status {
+  color: var(--clr-neutral-200);
+  font-weight: 400;
+}
+
+.testimonial__summary {
+  font-weight: 600;
+  font-size: var(--sp-2-3);
+  z-index: 2;
+}
+
+.testimonial__quote {
+  line-height: 1.5;
+  letter-spacing: var(--sp-0-3);
+  font-weight: 400;
+  font-size: var(--sp-1-3);
+}
+
+.testimonial__img-quote {
+  display: none;
+}
+
+.testimonial--daniel {
+  background-color: var(--clr-primary-500);
+}
+
+.testimonial--jonathan {
+  background-color: var(--clr-neutral-500);
+}
+
+.testimonial--jeanette {
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+}
+
+.testimonial--patrick {
+  background-color: var(--clr-dark-blue);
+}
+
+.testimonial--kira {
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+}
+
+.attribution {
+  font-size: var(--sp-1-8);
+  text-align: center;
+  margin-bottom: var(--sp-1);
+}
+
+.attribution a {
+  color: var(--clr-a);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease, font-weight 0.2s ease;
+}
+
+.attribution a:hover {
+  color: var(--clr-a-hover);
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+@media (min-width: 37.5rem) {
+  .testimonial {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial--daniel {
+    grid-column: 1 / 3;
+  }
+}
+
+@media (min-width: 68.75rem) {
+  .testimonial {
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .testimonial--daniel {
+    grid-area: daniel;
+  }
+
+  .testimonial--jonathan {
+    grid-area: jonathan;
+  }
+
+  .testimonial--jeanette {
+    grid-area: jeanette;
+  }
+
+  .testimonial--patrick {
+    grid-area: patrick;
+  }
+
+  .testimonial--kira {
+    grid-area: kira;
+  }
+
+  .testimonial__header {
+    position: relative;
+  }
+
+  .testimonial__img-quote {
+    display: block;
+    position: absolute;
+    top: calc(0rem - var(--sp-3));
+    right: var(--sp-3);
+  }
+
+  .testimonial__summary {
+    font-size: var(--sp-2-1);
+  }
+}
